@@ -1,10 +1,10 @@
-# 🏦 Loan Approval Prediction System
+# Loan Approval Prediction System
 
 End-to-end Machine Learning project that predicts whether a loan application will be approved or rejected based on user financial data.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Machine Learning model (Random Forest)
 - FastAPI backend for predictions
@@ -14,7 +14,7 @@ End-to-end Machine Learning project that predicts whether a loan application wil
 
 ---
 
-## 🧠 Model Details
+## Model Details
 
 - Algorithm: Random Forest Classifier
 - Features:
@@ -29,7 +29,7 @@ End-to-end Machine Learning project that predicts whether a loan application wil
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Python
 - FastAPI
@@ -38,5 +38,3 @@ End-to-end Machine Learning project that predicts whether a loan application wil
 - HTML / CSS / JavaScript
 
 ---
-
-## 📁 Project Structure
