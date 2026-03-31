@@ -1,28 +1,35 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 import joblib
 import pandas as pd
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from fastapi import Request
+
+
 
 app = FastAPI()
 
-# Configurar templates
+# Configure templates
 templates = Jinja2Templates(directory="templates")
 
-# Cargar pipeline entrenado
-pipeline = joblib.load("loan_pipeline.pkl")
+# Load trained pipeline
+pipeline = joblib.load("model/loan_pipeline.pkl")
 
 
-# 👉 NUEVA RUTA RAÍZ
-@app.get("/")
-def home():
-    return {"message": "Loan API is running"}
+# # Root endpoint
+# @app.get("/")
+# def home():
+#     return {
+#         "message": "Loan Approval API is running",
+#         "status": "success"
+#     }
 
-# 🔹 PASO 4 → RUTA PARA MOSTRAR FORMULARIO
-@app.get("/form", response_class=HTMLResponse)
-def show_form(request: Request):
+# Route to display form
+# @app.get("/form", response_class=HTMLResponse)
+# def show_form(request: Request):
+#     return templates.TemplateResponse("index.html", {"request": request})
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
@@ -50,3 +57,4 @@ def predict(data: LoanRequest):
     return {
         "Loan Approval Prediction": int(prediction)
     }
+# http://127.0.0.1:8000/form
